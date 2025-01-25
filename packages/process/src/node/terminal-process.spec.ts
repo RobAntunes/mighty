@@ -33,7 +33,7 @@ beforeEach(() => {
     terminalProcessFactory = createProcessTestContainer().get<TerminalProcessFactory>(TerminalProcessFactory);
 });
 
-describe('TerminalProcess', function (): void {
+describe('TerminalProcess', function (this: Mocha.Suite): void {
 
     this.timeout(20_000);
 
@@ -51,7 +51,7 @@ describe('TerminalProcess', function (): void {
         }
     });
 
-    it('test implicit .exe (Windows only)', async function (): Promise<void> {
+    it('test implicit .exe (Windows only)', async function (this: Mocha.Context): Promise<void> {
         const match = /^(.+)\.exe$/.exec(process.execPath);
         if (!isWindows || !match) {
             this.skip();

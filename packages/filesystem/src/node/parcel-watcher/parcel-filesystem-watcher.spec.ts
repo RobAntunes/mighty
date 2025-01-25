@@ -27,7 +27,7 @@ import { DidFilesChangedParams, FileChange, FileChangeType } from '../../common/
 const expect = chai.expect;
 const track = temp.track();
 
-describe('parcel-filesystem-watcher', function (): void {
+describe('parcel-filesystem-watcher', function (this: Mocha.Suite): void {
 
     let root: URI;
     let watcherService: ParcelFileSystemWatcherService;

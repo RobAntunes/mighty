@@ -130,7 +130,7 @@ describe('iterators', () => {
         expect(array).to.be.empty;
     });
 
-    it('cycle - without start', function (): void {
+    it('cycle - without start', function (this: Mocha.Context): void {
         this.timeout(1000);
         const array = [1, 2, 3, 4];
         const itr = Iterators.cycle(array);
@@ -148,7 +148,7 @@ describe('iterators', () => {
         }
     });
 
-    it('cycle - with start', function (): void {
+    it('cycle - with start', function (this: Mocha.Context): void {
         this.timeout(1000);
         const array = [1, 2, 3, 4];
         const itr = Iterators.cycle(array, 2);

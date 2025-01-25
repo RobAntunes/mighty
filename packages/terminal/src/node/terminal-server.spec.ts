@@ -24,7 +24,7 @@ import { ITerminalServer } from '../common/terminal-protocol';
 
 const expect = chai.expect;
 
-describe('TerminalServer', function (): void {
+describe('TerminalServer', function (this: Mocha.Suite): void {
 
     this.timeout(5000);
     let terminalServer: ITerminalServer;

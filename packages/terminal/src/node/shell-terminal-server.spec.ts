@@ -23,12 +23,12 @@ import { IShellTerminalServer } from '../common/shell-terminal-protocol';
 
 const expect = chai.expect;
 
-describe('ShellServer', function (): void {
+describe('ShellServer', function (this: Mocha.Suite): void {
 
     this.timeout(5000);
     let shellTerminalServer: IShellTerminalServer;
 
-    beforeEach(() => {
+    beforeEach(function (this: Mocha.Context): void {
         shellTerminalServer = createTerminalTestContainer().get(IShellTerminalServer);
     });
 

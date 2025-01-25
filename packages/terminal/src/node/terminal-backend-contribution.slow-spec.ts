@@ -22,7 +22,7 @@ import * as https from 'https';
 import { terminalsPath } from '../common/terminal-protocol';
 import { TestWebSocketChannelSetup } from '@theia/core/lib/node/messaging/test/test-web-socket-channel';
 
-describe('Terminal Backend Contribution', function (): void {
+describe('Terminal Backend Contribution', function (this: Mocha.Suite): void {
 
     this.timeout(10000);
     let server: http.Server | https.Server;

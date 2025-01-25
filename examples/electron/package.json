@@ -31,6 +31,7 @@
     "@theia/ai-chat-ui": "1.57.0",
     "@theia/ai-code-completion": "1.57.0",
     "@theia/ai-core": "1.57.0",
+    "@theia/council": "0.0.0",
     "@theia/ai-history": "1.57.0",
     "@theia/ai-huggingface": "1.57.0",
     "@theia/ai-llamafile": "1.57.0",

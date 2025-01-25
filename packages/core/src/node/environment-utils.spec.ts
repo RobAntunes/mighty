@@ -19,10 +19,10 @@ import { EnvironmentUtils } from './environment-utils';
 
 const expect = chai.expect;
 
-describe('EnvironmentUtils', function (): void {
+describe('EnvironmentUtils', function (this: Mocha.Suite): void {
 
-    describe('#mergeProcessEnv', function (): void {
-        this.timeout(5000);
+    describe('#mergeProcessEnv', function (this: Mocha.Context): void {
+            this.timeout(5000);
 
         let utils: EnvironmentUtils;
 

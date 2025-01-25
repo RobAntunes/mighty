@@ -35,7 +35,7 @@ describe('git-watcher-slow', () => {
     let repository: Repository | undefined;
     let watcher: GitWatcherServer | undefined;
 
-    beforeEach(async function (): Promise<void> {
+    beforeEach(async function (this: Mocha.Context & { timeout: (ms: number) => void; }): Promise<void> {
         this.timeout(40000);
 
         const root = track.mkdirSync('git-watcher-slow');
@@ -51,12 +51,12 @@ describe('git-watcher-slow', () => {
         await git!.clone('https://github.com/TypeFox/find-git-exec.git', { localUri });
     });
 
-    after(function (): void {
+    after(function (this: Mocha.Context): void {
         this.timeout(40000);
         track.cleanupSync();
     });
 
-    it('watching the same repository multiple times should not duplicate the events', async function (): Promise<void> {
+    it('watching the same repository multiple times should not duplicate the events', async function (this: Mocha.Context): Promise<void> {
         this.timeout(40000);
 
         let ignoredEvents = 1;

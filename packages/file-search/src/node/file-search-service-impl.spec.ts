@@ -36,7 +36,7 @@ testContainer.load(new ContainerModule(bind => {
     bind(FileSearchServiceImpl).toSelf().inSingletonScope();
 }));
 
-describe('search-service', function (): void {
+describe('search-service', function (this: Mocha.Suite): void {
 
     this.timeout(10000);
 
