@@ -56,7 +56,7 @@ const script2 = './test-arguments-2.js';
 const wsRootUri: URI = FileUri.create(__dirname).resolve('../../test-resources');
 const wsRoot: string = FileUri.fsPath(wsRootUri);
 
-describe('Task server / back-end', function (): void {
+describe('Task server / back-end', function (this: Mocha.Suite): void {
     this.timeout(10000);
 
     let backend: BackendApplication;

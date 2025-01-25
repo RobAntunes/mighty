@@ -30,7 +30,7 @@ describe('git-slow', async function (): Promise<void> {
 
     describe('diff-slow', async () => {
 
-        it('diff with rename/move', async function (): Promise<void> {
+        it('diff with rename/move', async function (this: Mocha.Context): Promise<void> {
             this.timeout(50000);
 
             const root = track.mkdirSync('diff-slow-rename');

@@ -65,7 +65,7 @@ describe('file-uri', () => {
         expect(uri.toString(true)).to.be.equal('file:///c:/');
     });
 
-    it('from file:///c%3A', function (): void {
+    it('from file:///c%3A', function (this: Mocha.Context): void {
         if (!isWindows) {
             this.skip();
             return;

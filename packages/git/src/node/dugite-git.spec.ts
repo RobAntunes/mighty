@@ -32,7 +32,7 @@ import { isWindows } from '@theia/core/lib/common/os';
 
 const track = temp.track();
 
-describe('git', async function (): Promise<void> {
+describe('git', async function (this: Mocha.Suite): Promise<void> {
 
     this.timeout(10000);
 
@@ -74,7 +74,7 @@ describe('git', async function (): Promise<void> {
 
         });
 
-        it('should discover all nested repositories and the root repository which is at the workspace root', async function (): Promise<void> {
+        it('should discover all nested repositories and the root repository which is at the workspace root', async function (this: Mocha.Context): Promise<void> {
             if (isWindows) {
                 // https://github.com/eclipse-theia/theia/issues/933
                 this.skip();
@@ -720,7 +720,7 @@ describe('git', async function (): Promise<void> {
     describe('branch', () => {
 
         // Skip the test case as it is dependent on the git version.
-        it.skip('should list the branch in chronological order', async function (): Promise<void> {
+        it.skip('should list the branch in chronological order', async function (this: Mocha.Context): Promise<void> {
             if (isWindows) {
                 this.skip(); // https://github.com/eclipse-theia/theia/issues/8023
                 return;
