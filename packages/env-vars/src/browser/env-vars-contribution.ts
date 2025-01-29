@@ -15,7 +15,7 @@ export class EnvVarsCommandContribution extends AbstractViewContribution<EnvVarM
         super({
             widgetId: EnvVarManagerWidget.ID,
             widgetName: EnvVarManagerWidget.LABEL,
-            defaultWidgetOptions: { area: 'main' },
+            defaultWidgetOptions: { area: 'left' },
             toggleCommandId: EnvVarsCommand.id
         });
     }

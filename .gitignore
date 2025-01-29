@@ -5,6 +5,7 @@ lib
 tmp
 *.log
 .idea
+*.env
 .metadata
 *.iml
 jdt.ls-java-project

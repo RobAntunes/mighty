@@ -36,20 +36,58 @@ export class EnvVarManagerWidget extends ReactWidget {
 
     @postConstruct()
     protected init(): void {
-        this.doInit();
-    }
-
-    protected async doInit(): Promise<void> {
         this.id = EnvVarManagerWidget.ID;
         this.title.label = EnvVarManagerWidget.LABEL;
         this.title.caption = EnvVarManagerWidget.LABEL;
         this.title.closable = true;
         this.title.iconClass = 'fa fa-key';
         this.update();
+
+        // Load variables after basic initialization
+        this.loadExistingVariables().catch(error => {
+            console.error('Failed to load variables during init:', error);
+        });
+    }
+
+    protected async loadExistingVariables(): Promise<void> {
+        try {
+            const rootUri = this.workspaceService.tryGetRoots()[0]?.resource;
+            if (!rootUri) {
+                return;
+            }
+
+            const envContent = await this.envVarService.readEnvFile(rootUri.toString());
+            if (!envContent) {
+                return;
+            }
+
+            // Parse the .env content
+            const variables = envContent
+                .split('\n')
+                .filter(line => line.trim() && !line.startsWith('#')) // Skip empty lines and comments
+                .map(line => {
+                    const [key, ...valueParts] = line.split('=');
+                    return {
+                        id: `env-${Date.now()}-${Math.random()}`,
+                        key: key.trim(),
+                        value: valueParts.join('=').trim() // Handle values that might contain = signs
+                    };
+                });
+
+            this.envVars = variables;
+            this.update();
+        } catch (error) {
+            console.error('Failed to load environment variables:', error);
+            this.messageService.error('Failed to load environment variables. Please try again.');
+        }
     }
 
     protected onAfterAttach(msg: Message): void {
         super.onAfterAttach(msg);
+        // Reload variables when widget is reattached
+        this.loadExistingVariables().catch(error => {
+            console.error('Failed to load variables on attach:', error);
+        });
     }
 
     private addNewVariable = () => {
