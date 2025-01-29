@@ -160,12 +160,16 @@ const api: TheiaCoreAPI = {
         return Disposable.create(() => ipcRenderer.off(CHANNEL_ON_WINDOW_EVENT, h));
     },
     setCloseRequestHandler: function (handler: (stopReason: StopReason) => Promise<boolean>): void {
-        ipcRenderer.on(CHANNEL_REQUEST_CLOSE, async (event, stopReason, confirmChannel, cancelChannel) => {
+        interface CloseRequestEvent extends Electron.IpcRendererEvent {
+            sender: Electron.IpcRenderer;
+        }
+
+        ipcRenderer.on(CHANNEL_REQUEST_CLOSE, async (event: CloseRequestEvent, stopReason: StopReason, confirmChannel: string, cancelChannel: string) => {
             try {
                 if (await handler(stopReason)) {
                     event.sender.send(confirmChannel);
                     return;
-                };
+                }
             } catch (e) {
                 console.warn('exception in close handler ', e);
             }
@@ -249,7 +253,9 @@ function createDisposableListener(channel: string, handler: (event: any, ...args
 
 export function preload(): void {
     console.log('exposing theia core electron api');
-    ipcRenderer.on(CHANNEL_INVOKE_MENU, (_, menuId: number, handlerId: number) => {
+    const commandHandlers = new Map<number, Map<number, () => void>>();
+
+    ipcRenderer.on(CHANNEL_INVOKE_MENU, (_: Electron.IpcRendererEvent, menuId: number, handlerId: number) => {
         const map = commandHandlers.get(menuId);
         if (map) {
             const handler = map.get(handlerId);

@@ -21,7 +21,7 @@ const expect = chai.expect;
 
 describe('EnvironmentUtils', function (this: Mocha.Suite): void {
 
-    describe('#mergeProcessEnv', function (this: Mocha.Context): void {
+    describe('#mergeProcessEnv', function (this: Mocha.Suite): void {
             this.timeout(5000);
 
         let utils: EnvironmentUtils;

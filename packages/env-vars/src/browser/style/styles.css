@@ -1,0 +1,236 @@
+.env-var-manager {
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.env-var-header {
+    background: var(--theia-editorWidget-background);
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    flex: 1 1 300px;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: clamp(20px, 4vw, 24px);
+    color: var(--theia-foreground);
+    line-height: 1.2;
+}
+
+.subtitle {
+    margin: 5px 0 0;
+    font-size: clamp(12px, 3vw, 14px);
+    color: var(--theia-descriptionForeground);
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.add-btn {
+    background-color: var(--theia-button-background);
+    color: var(--theia-button-foreground);
+    margin-left: auto;
+}
+
+.add-btn:hover {
+    background-color: var(--theia-button-hoverBackground);
+    transform: translateY(-1px);
+}
+
+.env-var-content {
+    background: var(--theia-editorWidget-background);
+    padding: clamp(12px, 3vw, 20px);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.variables-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.variable-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    background: var(--theia-editor-background);
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    flex-wrap: wrap;
+}
+
+.variable-row > * {
+    flex: 1 1 200px;
+}
+
+.variable-row .delete-btn {
+    flex: 0 0 auto;
+}
+
+.input-field {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--theia-input-border);
+    background: var(--theia-input-background);
+    color: var(--theia-input-foreground);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--theia-focusBorder);
+    box-shadow: 0 0 0 2px var(--theia-focusBorder);
+}
+
+.delete-btn {
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--theia-errorForeground);
+    opacity: 0.7;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    background-color: var(--theia-errorBackground);
+}
+
+.empty-state {
+    text-align: center;
+    padding: clamp(20px, 5vw, 40px);
+    color: var(--theia-descriptionForeground);
+}
+
+.empty-icon {
+    font-size: clamp(24px, 6vw, 32px);
+    margin-bottom: 12px;
+    color: var(--theia-descriptionForeground);
+}
+
+.empty-state h3 {
+    margin: 0 0 8px;
+    font-size: clamp(14px, 4vw, 16px);
+    color: var(--theia-foreground);
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: clamp(12px, 3vw, 14px);
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.save-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 12px;
+}
+
+.save-btn {
+    background-color: var(--theia-successBackground);
+    color: var(--theia-foreground);
+    min-width: 120px;
+}
+
+.save-btn:hover {
+    background-color: var(--theia-successHoverBackground);
+    transform: translateY(-1px);
+}
+
+/* Media Queries for better responsive behavior */
+@media (max-width: 640px) {
+    .env-var-manager {
+        padding: 12px;
+    }
+
+    .env-var-header {
+        padding: 16px;
+        text-align: center;
+    }
+
+    .header-content {
+        flex: 1 1 100%;
+    }
+
+    .add-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .variable-row {
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .save-section {
+        padding: 0;
+    }
+
+    .save-btn {
+        width: 100%;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+    .env-var-header {
+        padding: 12px;
+    }
+
+    .variable-row {
+        padding: 6px;
+    }
+
+    .input-field {
+        font-size: 14px;
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+    .env-var-manager {
+        padding: 32px;
+    }
+
+    .variable-row:hover {
+        transform: translateX(4px);
+    }
+}
+
+/* Ensures proper display in dark themes */
+@media (prefers-color-scheme: dark) {
+    .empty-state {
+        opacity: 0.8;
+    }
+}

@@ -15,8 +15,7 @@
 // *****************************************************************************
 
 import { injectable, inject, named } from '@theia/core/shared/inversify';
-import { ITokenTypeMap, IEmbeddedLanguagesMap } from 'vscode-textmate';
-import { StandardTokenType } from 'vscode-textmate/release/encodedTokenAttributes';
+
 import { TextmateRegistry, getEncodedLanguageId, MonacoTextmateService, GrammarDefinition } from '@theia/monaco/lib/browser/textmate';
 import { MenusContributionPointHandler } from './menus/menus-contribution-handler';
 import { PluginViewRegistry } from './view/plugin-view-registry';
@@ -54,6 +53,8 @@ import { PluginTerminalRegistry } from './plugin-terminal-registry';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { LanguageService } from '@theia/core/lib/browser/language-service';
 import { ThemeIcon } from '@theia/monaco-editor-core/esm/vs/base/common/themables';
+import { StandardTokenType } from '@theia/monaco-editor-core/esm/vs/editor/common/encodedTokenAttributes';
+import { IEmbeddedLanguagesMap, ITokenTypeMap } from 'vscode-textmate';
 
 @injectable()
 export class PluginContributionHandler {

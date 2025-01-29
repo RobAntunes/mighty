@@ -69,9 +69,6 @@
       "path": "../../packages/core"
     },
     {
-      "path": "../../packages/council"
-    },
-    {
       "path": "../../packages/debug"
     },
     {
@@ -82,6 +79,9 @@
     },
     {
       "path": "../../packages/editor-preview"
+    },
+    {
+      "path": "../../packages/env-vars"
     },
     {
       "path": "../../packages/external-terminal"

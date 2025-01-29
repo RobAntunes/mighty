@@ -33,8 +33,9 @@ export class AIAgentConfigurationViewContribution extends AIViewContribution<AIC
             widgetId: AIConfigurationContainerWidget.ID,
             widgetName: AIConfigurationContainerWidget.LABEL,
             defaultWidgetOptions: {
-                area: 'main',
-                rank: 100
+                area: "left",
+                rank: 100,
+                "mode": "open-to-right",
             },
             toggleCommandId: AI_CONFIGURATION_TOGGLE_COMMAND_ID
         });
