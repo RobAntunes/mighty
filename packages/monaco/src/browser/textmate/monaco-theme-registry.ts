@@ -18,7 +18,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { inject, injectable } from '@theia/core/shared/inversify';
-import { IRawThemeSetting } from 'vscode-textmate/release/theme';
+interface IRawThemeSetting {
+    readonly name?: string;
+    readonly scope?: string | string[];
+    readonly settings: {
+        readonly fontStyle?: string;
+        readonly foreground?: string;
+        readonly background?: string;
+    };
+}
 import * as monaco from '@theia/monaco-editor-core';
 import { IStandaloneThemeService } from '@theia/monaco-editor-core/esm/vs/editor/standalone/common/standaloneTheme';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
@@ -76,14 +84,12 @@ export class MonacoThemeRegistry {
      * Register VS Code compatible themes
      */
     register(json: any, includes?: { [includePath: string]: any }, givenName?: string, monacoBase?: monaco.editor.BuiltinTheme): ThemeMix {
-        const name = givenName || json.name!;
         const result: ThemeMix = {
-            name,
             base: monacoBase || 'vs',
             inherit: true,
             colors: {},
             rules: [],
-            settings: []
+            settings: [],
         };
         if (typeof json.include !== 'undefined') {
             if (!includes || !includes[json.include]) {

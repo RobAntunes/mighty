@@ -418,8 +418,8 @@ export class SearchInWorkspaceResultTreeWidget extends TreeWidget {
      * @param patterns the glob patterns to verify.
      */
     protected inPatternList(uri: URI, patterns: string[]): boolean {
-        const opts: minimatch.IOptions = { dot: true, matchBase: true };
-        return patterns.some(pattern => minimatch(
+        const opts: minimatch.MinimatchOptions = { dot: true, matchBase: true };
+        return patterns.some(pattern => minimatch.minimatch(
             uri.toString(),
             this.convertPatternToGlob(this.workspaceService.getWorkspaceRootUri(uri), pattern),
             opts

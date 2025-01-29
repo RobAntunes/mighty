@@ -1,5 +1,30 @@
 .ai-configuration-widget {
-  padding: var(--theia-ui-padding);
+  padding: 10px;
+  background: var(--theia-editor-background);
+}
+
+.theia-settings-container {
+  min-width: 600px;
+  min-height: 400px;
+}
+
+/* Agent Config Styling */
+.ai-agent-config {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 15px;
+}
+
+/* Variable Config Styling */
+.ai-variable-config {
+  padding: 15px;
+}
+
+/* DockPanel Customization */
+.p-DockPanel-widget {
+  border: 1px solid var(--theia-border-color);
+  border-radius: 4px;
 }
 
 .theia-ai-settings-container {
@@ -54,6 +79,12 @@
   color: var(--theia-errorForeground);
 }
 
+
+#ai-variable-configuration-container-widget {
+  gap: 5px;
+  padding: 20px
+}
+
 #ai-variable-configuration-container-widget,
 #ai-agent-configuration-container-widget {
   margin-top: 5px;
@@ -61,6 +92,8 @@
 
 /* Variable Settings */
 #ai-variable-configuration-container-widget ul {
+  display: grid;
+  grid-template-columns: auto;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -74,14 +107,42 @@
 
 #ai-variable-configuration-container-widget .variable-args {
   display: grid;
-  grid-template-columns: 1fr 2fr;
 }
 
 /* Agent Settings */
 #ai-agent-configuration-container-widget ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 40px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+#ai-agent-configuration-container-widget ul li {
+  height: 250px;
+  width: 150px;
+  display: flex;
+  align-items: flex-end;
+  color: rgb(37, 37, 37);
+  background-color: rgba(202, 202, 202, 0.599);
+  box-shadow: 3px 1px 16px rgba(245, 245, 245, 0.426);
+  filter: drop-shadow(2px, 0px, 12px, black);
+  border-radius: 3px;
+}
+
+#ai-agent-configuration-container-widget ul li div {
+  display: flex;
+  flex: 1;
+  flex-direction: flex-end;
+  padding: 16px;
+  background-color: whitesmoke;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+#ai-agent-configuration-container-widget ul li span {
+  height: min-content;
 }
 
 .ai-agent-configuration-main {
@@ -90,7 +151,7 @@
 }
 
 .configuration-agents-list {
-  width: 128px;
+  width: max-content;
 }
 
 .configuration-agent-panel {
@@ -114,11 +175,15 @@
 }
 
 .agent-tag {
+  flex: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
   padding: calc(var(--theia-ui-padding) * 2 / 3);
   padding-top: 0px;
   padding-bottom: 0px;
   border-radius: calc(var(--theia-ui-padding) * 2 / 3);
-  background: hsla(0, 0%, 68%, 0.31);
+
 }
 
 .configuration-agents-add {

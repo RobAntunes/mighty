@@ -1,0 +1,29 @@
+{
+  "name": "@theia/env-vars",
+  "keywords": [
+    "theia-extension"
+  ],
+  "version": "0.0.0",
+  "license": "true",
+  
+  "files": [
+    "lib",
+    "src"
+  ],
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "typescript": "~5.4.5"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn run build",
+    "clean": "rimraf lib",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "theiaExtensions": [
+    {
+      "frontend": "lib/browser/env-vars-frontend-module",
+      "backend": "lib/node/env-vars-backend-module"
+    }
+  ]
+}

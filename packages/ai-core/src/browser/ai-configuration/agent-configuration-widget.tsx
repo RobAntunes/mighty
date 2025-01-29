@@ -93,7 +93,7 @@ export class AIAgentConfigurationWidget extends ReactWidget {
 
     protected render(): React.ReactNode {
         return <div className='ai-agent-configuration-main'>
-            <div className='configuration-agents-list preferences-tree-widget theia-TreeContainer' style={{ width: '25%' }}>
+            <div className='configuration-agents-list preferences-tree-widget theia-TreeContainer'>
                 <ul>
                     {this.agentService.getAllAgents().map(agent =>
                         <li key={agent.id} className='theia-TreeNode theia-CompositeTreeNode theia-ExpandableTreeNode' onClick={() => this.setActiveAgent(agent)}>
@@ -112,8 +112,7 @@ export class AIAgentConfigurationWidget extends ReactWidget {
     }
 
     private renderAgentName(agent: Agent): React.ReactNode {
-        const tagsSuffix = agent.tags?.length ? <span>{agent.tags.map(tag => <span key={tag} className='agent-tag'>{tag}</span>)}</span> : '';
-        return <span>{agent.name} {tagsSuffix}</span>;
+        return <div><span>{agent.name}</span></div>;
     }
 
     private renderAgentDetails(): React.ReactNode {
