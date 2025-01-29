@@ -21,7 +21,6 @@
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
     "@typescript-eslint/parser": "^7.18.0",
-    "@theia/council": "0.0.0",
     "@vscode/vsce": "^2.15.0",
     "archiver": "^5.3.1",
     "chai": "4.3.10",

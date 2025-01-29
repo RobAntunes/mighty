@@ -51,6 +51,7 @@
     "@theia/dev-container": "1.58.0",
     "@theia/editor": "1.58.0",
     "@theia/editor-preview": "1.58.0",
+    "@theia/env-vars": "^0.0.0",
     "@theia/electron": "1.58.0",
     "@theia/external-terminal": "1.58.0",
     "@theia/file-search": "1.58.0",
