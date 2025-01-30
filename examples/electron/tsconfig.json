@@ -54,6 +54,9 @@
       "path": "../../packages/ai-workspace-agent"
     },
     {
+      "path": "../../packages/api-dock"
+    },
+    {
       "path": "../../packages/bulk-edit"
     },
     {
