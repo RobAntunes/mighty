@@ -5,11 +5,13 @@ import {
     ActionInfo, 
     TriggerInfo 
 } from '../common/protocol';
+import dotenv from "dotenv";
+dotenv.config({"path": "../../.env"})
 
 @injectable()
 export class ApiDockBackendServiceImpl implements ApiDockBackendService {
     private readonly baseUrl = 'https://backend.composio.dev';
-    private apiKey: string = ''; // Should be configured securely
+    private apiKey: string = process.env.composio!;
 
     private async fetchWithAuth(endpoint: string, options: RequestInit = {}): Promise<any> {
         const response = await fetch(`${this.baseUrl}${endpoint}`, {
