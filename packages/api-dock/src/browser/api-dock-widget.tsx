@@ -2,7 +2,7 @@ import { BaseWidget, Message } from "@theia/core/lib/browser";
 import { inject } from "@theia/core/shared/inversify";
 import { MessageService } from "@theia/core";
 import React, { ReactElement, useState } from "react";
-import { ChevronRight, Command, Grid, List, Zap } from "lucide-react";
+import { ChevronLeft, ChevronRight, Command, Grid, List, Zap } from "lucide-react";
 import {
     ActionInfo,
     ApiDockAIService,
@@ -432,11 +432,14 @@ const ApiDockContent: React.FC<ApiDockContentProps> = ({
         <div style={styles.container}>
             <div style={styles.header}>
                 <h2 style={styles.title}>API Explorer</h2>
+                <div>
+                    <ChevronLeft style={{ marginRight: "5px" }} />
+                    <span>Back</span>
+                </div>
                 <p>Browse the available API actions that your AI agents can seamlessly integrate into your applications.</p>
                 <ViewToggle isGridView={isGridView} onToggle={setIsGridView} />
             </div>
             <SearchBar onSearch={onSearch} />
-
             <div style={styles.content}>
                 {selectedApp
                     ? (
@@ -720,8 +723,7 @@ export class ApiDockWidget extends BaseWidget {
             this.update();
 
             this.messageService.info(
-                `Trigger ${trigger.display_name} ${
-                    trigger.enabled ? "disabled" : "enabled"
+                `Trigger ${trigger.display_name} ${trigger.enabled ? "disabled" : "enabled"
                 } successfully`,
                 { timeout: 3000 },
             );
