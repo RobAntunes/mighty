@@ -1,12 +1,12 @@
 import { injectable } from '@theia/core/shared/inversify';
-import { 
-    ApiDockBackendService, 
-    AppInfo, 
-    ActionInfo, 
-    TriggerInfo 
+import {
+    ApiDockBackendService,
+    AppInfo,
+    ActionInfo,
+    TriggerInfo
 } from '../common/protocol';
 import dotenv from "dotenv";
-dotenv.config({"path": "../../.env"})
+dotenv.config({ "path": "../../.env" })
 
 @injectable()
 export class ApiDockBackendServiceImpl implements ApiDockBackendService {
