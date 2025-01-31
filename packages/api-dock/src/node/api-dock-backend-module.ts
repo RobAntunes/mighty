@@ -11,7 +11,7 @@ import { ApiDockBackendServiceImpl } from './api-dock-backend-service';
 import { ApiDockAIServiceImpl } from './api-dock-ai-service';
 
 export default new ContainerModule(bind => {
-    // Bind backend service
+    // Only bind your API dock services
     bind(ApiDockBackendService).to(ApiDockBackendServiceImpl).inSingletonScope();
     bind(ConnectionHandler).toDynamicValue(ctx =>
         new JsonRpcConnectionHandler(API_DOCK_BACKEND_PATH, () => {
@@ -19,7 +19,7 @@ export default new ContainerModule(bind => {
         })
     ).inSingletonScope();
 
-    // Bind AI service with client support
+    // AI service binding
     bind(ApiDockAIService).to(ApiDockAIServiceImpl).inSingletonScope();
     bind(ConnectionHandler).toDynamicValue(ctx =>
         new JsonRpcConnectionHandler<ApiDockAIClient>(API_DOCK_AI_PATH, client => {
