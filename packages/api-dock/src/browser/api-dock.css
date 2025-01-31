@@ -1,0 +1,257 @@
+.api-dock-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--theia-editor-background);
+    color: var(--theia-foreground);
+}
+
+.api-dock-header {
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--theia-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.api-dock-title {
+    margin: 0;
+    font-size: 18px;
+    color: var(--theia-titleBar-activeForeground);
+}
+
+.api-dock-search-container {
+    padding: 16px;
+    border-bottom: 1px solid var(--theia-border);
+}
+
+.api-dock-search-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--theia-input-border);
+    background-color: var(--theia-input-background);
+    color: var(--theia-input-foreground);
+    outline: none;
+    font-size: 14px;
+}
+
+.api-dock-search-input:focus {
+    border-color: var(--theia-focusBorder);
+}
+
+.api-dock-grid-container {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    overflow-y: auto;
+}
+
+.api-dock-list-container {
+    overflow-y: auto;
+}
+
+.api-dock-card {
+    padding: 16px;
+    border-radius: 4px;
+    border: 1px solid var(--theia-border);
+    background-color: var(--theia-editor-background);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.api-dock-card:hover {
+    background-color: var(--theia-list-hoverBackground);
+}
+
+.api-dock-card.selected {
+    border-color: var(--theia-focusBorder);
+    background-color: var(--theia-list-activeSelectionBackground);
+}
+
+.api-dock-list-item {
+    padding: 16px;
+    border-bottom: 1px solid var(--theia-border);
+    border-left: 4px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.api-dock-list-item:hover {
+    background-color: var(--theia-list-hoverBackground);
+}
+
+.api-dock-list-item.selected {
+    border-left-color: var(--theia-focusBorder);
+    background-color: var(--theia-list-activeSelectionBackground);
+}
+
+.api-dock-icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--theia-icon-foreground);
+}
+
+.api-dock-icon-button:hover {
+    background-color: var(--theia-toolbar-hoverBackground);
+}
+
+.api-dock-icon-button.active {
+    background-color: var(--theia-toolbar-activeBackground);
+    color: var(--theia-activityBar-activeBorder);
+}
+
+.api-dock-section {
+    border-bottom: 1px solid var(--theia-border);
+}
+
+.api-dock-section-header {
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theia-descriptionForeground);
+    background-color: var(--theia-editor-background);
+}
+
+.api-dock-item {
+    padding: 16px;
+    border-bottom: 1px solid var(--theia-border);
+    transition: background-color 0.2s;
+}
+
+.api-dock-item:hover {
+    background-color: var(--theia-list-hoverBackground);
+}
+
+.api-dock-item-title {
+    margin: 0;
+    font-size: 16px;
+    color: var(--theia-foreground);
+}
+
+.api-dock-item-description {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: var(--theia-descriptionForeground);
+}
+
+.api-dock-trigger-button {
+    color: var(--theia-icon-foreground);
+}
+
+.api-dock-trigger-button.enabled {
+    color: var(--theia-successBackground);
+}
+
+/* Additional styles for details view */
+.api-dock-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.api-dock-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.api-dock-details-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--theia-border);
+    background-color: var(--theia-editor-background);
+}
+
+.api-dock-details-app {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.api-dock-details-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+}
+
+.api-dock-details-info {
+    flex: 1;
+}
+
+.api-dock-details-title {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    color: var(--theia-foreground);
+}
+
+.api-dock-details-description {
+    margin: 0;
+    font-size: 14px;
+    color: var(--theia-descriptionForeground);
+}
+
+.api-dock-details-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.api-dock-apps {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Card and list item content styles */
+.api-dock-card-content,
+.api-dock-list-item-content,
+.api-dock-item-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.api-dock-card-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+}
+
+.api-dock-list-item-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}
+
+.api-dock-card-info,
+.api-dock-list-item-info,
+.api-dock-item-info {
+    flex: 1;
+}
+
+.api-dock-item-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.api-dock-item-icon {
+    color: var(--theia-descriptionForeground);
+}
+
+.api-dock-card-arrow,
+.api-dock-list-item-arrow {
+    color: var(--theia-focusBorder);
+}
+
+/* View toggle container */
+.api-dock-view-toggle {
+    display: flex;
+    gap: 8px;
+}
